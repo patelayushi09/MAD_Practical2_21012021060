@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
+import androidx.constraintlayout.widget.ConstraintLayout
+import com.google.android.material.snackbar.Snackbar
 
 class MainActivity : AppCompatActivity() {
     val TAG="MainActivity"
@@ -45,5 +47,10 @@ class MainActivity : AppCompatActivity() {
     fun showMessage(msg:String){
         Log.i(TAG,"$msg")
         Toast.makeText(this,"$msg",Toast.LENGTH_LONG).show()
+        val a=findViewById<ConstraintLayout?>(R.id.mainLayout)
+        if(a!=null) {
+            Snackbar.make(a, "$msg", Snackbar.LENGTH_SHORT).show()
+        }
+
     }
 }
